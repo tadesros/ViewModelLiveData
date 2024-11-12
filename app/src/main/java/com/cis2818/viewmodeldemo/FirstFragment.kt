@@ -78,16 +78,10 @@ class FirstFragment : Fragment() {
 
         }//end setOnClickListener
 
-
-
-
-
-
-
     }//end onViewCreated
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-}
+}//end class FirstFragment
