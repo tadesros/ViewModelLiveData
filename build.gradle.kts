@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     kotlin("jvm")
     id("com.google.devtools.ksp") version "2.0.21-1.0.25"
+  //  id("com.google.devtools.ksp")
+
 }
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
