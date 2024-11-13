@@ -23,11 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
-        android:text="TextView"
+
+        android:text='@={safeUnbox(myViewModel.result) == 0.0 ? "Enter Value" : String.valueOf(safeUnbox(myViewModel.result)) + " euros"}'
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dollarText" />
+        app:layout_constraintTop_toBottomOf="@+id/dollarText"
+        tools:ignore="ExtraText" />
 
     <EditText
         android:id="@+id/dollarText"
@@ -36,6 +39,7 @@
         android:layout_marginTop="176dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:text="@={myViewModel.dollarValue}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +49,8 @@
         android:id="@+id/convertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Convert"
+        android:onClick="@{() -> myViewModel.convertValue()}"
+        android:text="@={myViewModel.dollarValue}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

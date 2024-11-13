@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.cis2818.viewmodeldemo.databinding.FragmentFirstBinding
+import com.cis2818.viewmodeldemo.BR.myViewModel
 import androidx.lifecycle.ViewModelProvider
 import android.util.Log
 //import androidx.lifecycle.Observer
@@ -55,7 +56,15 @@ class FirstFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
+
+         binding.setVariable(myViewModel, viewModel)
+
+
+
+
+
 
 
         /*
@@ -86,12 +95,12 @@ class FirstFragment : Fragment() {
 */
 
     }//end onViewCreated
-/*
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
- */
+                /*
+                    override fun onDestroyView() {
+                        super.onDestroyView()
+                        _binding = null
+                    }
+                 */
 
 
 
