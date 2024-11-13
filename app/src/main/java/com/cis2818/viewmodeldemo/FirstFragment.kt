@@ -10,21 +10,22 @@ import androidx.navigation.fragment.findNavController
 import com.cis2818.viewmodeldemo.databinding.FragmentFirstBinding
 import androidx.lifecycle.ViewModelProvider
 import android.util.Log
-import androidx.lifecycle.Observer
+//import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+   // private var _binding: FragmentFirstBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    //  private val binding get() = _binding!!
 
     private lateinit var viewModel: MainViewModel
-
+    lateinit var binding: FragmentFirstBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -33,16 +34,22 @@ class FirstFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-    }
-
-
+    }//end onCreate
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+      //  _binding = FragmentFirstBinding.inflate(inflater, container, false)
+
+
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_first, container, false
+        )
+
+        binding.lifecycleOwner = this
+
         return binding.root
 
     }
@@ -50,7 +57,9 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // binding.resultText.text = viewModel.getResult().toString()
+
+        /*
+        binding.resultText.text = viewModel.getResult().toString()
 
 
         val resultObserver = Observer<Float>{
@@ -58,10 +67,7 @@ class FirstFragment : Fragment() {
             result -> binding.resultText.text = result.toString()
         }
 
-
         viewModel.getResult().observe(viewLifecycleOwner,resultObserver)
-
-
 
         binding.convertButton.setOnClickListener{
 
@@ -77,11 +83,16 @@ class FirstFragment : Fragment() {
             Log.d("Test", "Convert Debug")
 
         }//end setOnClickListener
+*/
 
     }//end onViewCreated
-
+/*
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+ */
+
+
+
 }//end class FirstFragment

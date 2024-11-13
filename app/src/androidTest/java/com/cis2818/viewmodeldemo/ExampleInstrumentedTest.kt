@@ -21,4 +21,4 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.cis2818.viewmodeldemo", appContext.packageName)
     }
-}
+}//end ExampleInstrumentedTest
