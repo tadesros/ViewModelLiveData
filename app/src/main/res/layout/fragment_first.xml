@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
 
-        android:text='@={safeUnbox(myViewModel.result) == 0.0 ? "Enter Value" : String.valueOf(safeUnbox(myViewModel.result)) + " euros"}'
 
+        android:text='@{myViewModel.result == 0.0 ? "Enter Value" : String.valueOf(myViewModel.result + " euros")}'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
